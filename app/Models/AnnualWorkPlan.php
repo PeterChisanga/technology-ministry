@@ -12,6 +12,7 @@ class AnnualWorkPlan extends Model
     protected $fillable = [
         'name',
         'description',
+        'year',
         'government_institution_id',
     ];
 

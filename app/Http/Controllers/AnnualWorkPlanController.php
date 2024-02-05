@@ -32,17 +32,18 @@ class AnnualWorkPlanController extends Controller
         return redirect()->route('annual_work_plans.index', [$governmentInstitution])->with('success', 'Annual work plan created successfully.');
     }
 
-    public function show(AnnualWorkPlan $workPlan)
+    public function show(AnnualWorkPlan $annualWorkPlan)
     {
-        return view('annual_work_plans.show', compact('workPlan'));
+        $governmentInstitution = $annualWorkPlan->governmentInstitution;
+        return view('annual_work_plans.show', compact('annualWorkPlan','governmentInstitution'));
     }
 
-    public function edit(AnnualWorkPlan $workPlan)
+    public function edit(AnnualWorkPlan $annualWorkPlan)
     {
-        return view('annual_work_plans.edit', compact('workPlan'));
+        return view('annual_work_plans.edit', compact('annualWorkPlan'));
     }
 
-    public function update(Request $request, AnnualWorkPlan $workPlan)
+    public function update(Request $request, AnnualWorkPlan $annualWorkPlan)
     {
         $request->validate([
             'name' => 'required',
@@ -50,13 +51,13 @@ class AnnualWorkPlanController extends Controller
             'year' => 'required|numeric',
         ]);
 
-        $workPlan->update($request->all());
-        return redirect()->route('annual_work_plans.index', [$workPlan->governmentInstitution])->with('success', 'Annual work plan updated successfully.');
+        $annualWorkPlan->update($request->all());
+        return redirect()->route('annual_work_plans.index', [$annualWorkPlan->governmentInstitution])->with('success', 'Annual work plan updated successfully.');
     }
 
-    public function destroy(AnnualWorkPlan $workPlan)
+    public function destroy(AnnualWorkPlan $annualWorkPlan)
     {
-        $workPlan->delete();
-        return redirect()->route('annual_work_plans.index', [$workPlan->governmentInstitution])->with('success', 'Annual work plan deleted successfully.');
+        $annualWorkPlan->delete();
+        return redirect()->route('annual_work_plans.index', [$annualWorkPlan->governmentInstitution])->with('success', 'Annual work plan deleted successfully.');
     }
 }

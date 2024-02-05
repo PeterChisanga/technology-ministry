@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('first_name', 50);
             $table->string('middle_name', 50)->nullable();
             $table->string('last_name', 50);
-            $table->decimal('salary', 10, 2);
+            $table->decimal('salary', 10, 2)->nullable();
             $table->date('joining_date');
             $table->date('end_date')->nullable();
             $table->date('birth_date');
@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('health_and_safety', 50)->nullable();
             $table->string('employee_type', 50);
             $table->string('compensation_and_benefits', 50)->nullable();
-            $table->string('role', 50);
+            $table->string('role', 50)->nullable();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('department_id')->nullable();
             $table->timestamps();

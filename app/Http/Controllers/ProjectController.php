@@ -40,7 +40,7 @@ class ProjectController extends Controller
 
     public function show(Project $project)
     {
-        $governmentInstitution = $project->$governmentInstitution;
+        $governmentInstitution = $project->governmentInstitution;
         return view('projects.show', compact('project','governmentInstitution'));
     }
 

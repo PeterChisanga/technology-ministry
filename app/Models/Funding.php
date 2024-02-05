@@ -26,4 +26,5 @@ class Funding extends Model
     {
         return $this->belongsTo(GovernmentInstitution::class);
     }
+    
 }
